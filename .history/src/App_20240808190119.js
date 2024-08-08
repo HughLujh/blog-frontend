@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
-import Home from './pages/Home/Home';
-import Posts from './pages/Posts/Posts';
-import Contact from './pages/Contact/Contact';
-import SignIn from './pages/SignIn/SignIn';
-import SignUp from './pages/SignUp/SignUp';
+import NavBar from './components/NavBar/NavBar.js';
+import Home from './pages/Home/Home.js';
+import Posts from './pages/Posts/Posts.js';
+import Contact from './pages/Contact/Contact.js';
+import SignIn from './pages/SignIn/SignIn.js';
+import SignUp from './pages/SignUp/SignUp.js';
 
 function App() {
   return (

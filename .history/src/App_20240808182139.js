@@ -1,23 +1,20 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
-import Home from './pages/Home/Home';
+import Navbar from './components/Navbar';
+import Home from './pages/Home/Home.js';
 import Posts from './pages/Posts/Posts';
-import Contact from './pages/Contact/Contact';
-import SignIn from './pages/SignIn/SignIn';
-import SignUp from './pages/SignUp/SignUp';
+import Contact from './pages/Contact';
+import Login from './pages/Login';
 
 function App() {
   return (
     <div>
-      <NavBar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/posts" element={<Posts />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
