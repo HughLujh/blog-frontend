@@ -11,8 +11,7 @@ const SignUp = () => {
   });
   
   const [signupError, setSignupError] = useState('');
-  const [formErrors, setFormErrors] = useState({}); 
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -22,47 +21,33 @@ const SignUp = () => {
   };
   
   const handleSubmit = (e) => {
-      e.preventDefault();
-      if (formData.password !== formData.confirmPassword) {
-        setSignupError('Passwords do not match.');
-        return;
-      }
-      if (formData.username && formData.email && formData.password) {
-        console.log('Submitting:', formData);
-        setSignupError('');
-      // Send the POST request
-      fetch('http://localhost:8080/sign-up', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-      .then(async response =>{
-        if (response.ok) {
-        return response.json();
-      } else {
-        const errorData = await response.json();
-        throw new Error(JSON.stringify(errorData));
-      }
-      })
-      .then(data => {
-        console.log('Success:', data);
-        setSignupError('');
-        setFormErrors({});
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        try {
-          const errorData = JSON.parse(error.message);
-          setSignupError(errorData.message || 'An error occurred');
-          setFormErrors(errorData.errors || {});
-        } catch (e) {
-          setSignupError('An unexpected error occurred');
-        }      });
-    } else {
-      setSignupError('Please fill in all fields.');
+    e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      setSignupError('Passwords do not match.');
+      return;
     }
+    if (formData.username && formData.email && formData.password) {
+      console.log('Submitting:', formData);
+      setSignupError('');
+    // Send the POST request
+    fetch('http://localhost:8080/your-endpoint', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      // Handle error (e.g., show error message)
+    });
+  } else {
+    setSignupError('Please fill in all fields.');
+  }
   };
   
   return (
@@ -89,7 +74,7 @@ const SignUp = () => {
           onChange={handleChange}
           required
         />
-        {formErrors.email && <p className="error-message">{formErrors.email}</p>}
+        
         <label htmlFor="password">Password:</label>
         <input
           type="password"

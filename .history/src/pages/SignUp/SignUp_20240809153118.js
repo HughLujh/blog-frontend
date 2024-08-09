@@ -44,7 +44,6 @@ const SignUp = () => {
       } else {
         const errorData = await response.json();
         throw new Error(JSON.stringify(errorData));
-      }
       })
       .then(data => {
         console.log('Success:', data);

@@ -60,7 +60,7 @@ const SignIn = () => {
   return (
     <div className="SignIn-page">
       <h1>Sign in</h1>
-      {signinError && <p className="error-message">{signinError}</p>}
+      {signinError && <p className="error-message">{SignInError}</p>}
       <form className="SignIn-form" onSubmit={handleSubmit}>
         <label htmlFor="username">Email:</label>
         <input

@@ -38,14 +38,7 @@ const SignUp = () => {
         },
         body: JSON.stringify(formData),
       })
-      .then(async response =>{
-        if (response.ok) {
-        return response.json();
-      } else {
-        const errorData = await response.json();
-        throw new Error(JSON.stringify(errorData));
-      }
-      })
+      .then(response => response.json())
       .then(data => {
         console.log('Success:', data);
         setSignupError('');
@@ -89,7 +82,7 @@ const SignUp = () => {
           onChange={handleChange}
           required
         />
-        {formErrors.email && <p className="error-message">{formErrors.email}</p>}
+        
         <label htmlFor="password">Password:</label>
         <input
           type="password"

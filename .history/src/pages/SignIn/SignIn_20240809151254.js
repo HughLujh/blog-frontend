@@ -8,8 +8,8 @@ const SignIn = () => {
     password: ''
   });
   
-  const [signinError, setSignInError] = useState('');
-  const [formErrors, setFormErrors] = useState({}); 
+  const [SignInError, setSignInError] = useState('');
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCredentials({
@@ -30,27 +30,19 @@ const SignIn = () => {
         },
         body: JSON.stringify(credentials),
       })
-      .then(async response => {
+      .then(response => {
         if (response.ok) {
           return response.json();
         } else {
-          const errorData = await response.json();
-          throw new Error(JSON.stringify(errorData));
+          console.log(data)
+          setSignInError('Please enter both email and password.');
         }
       })
       .then(data=>{
         console.log('Success', data)
-        setSignInError('');
-        setFormErrors({});
       })
       .catch((error) =>{
-        try {
-          const errorData = JSON.parse(error.message);
-          setSignInError(errorData.message || 'An error occurred');
-          setFormErrors(errorData.errors || {});
-        } catch (e) {
-          setSignInError('An unexpected error occurred');
-        }
+        console.error('Error', error)
       });
     }else {
       setSignInError('Please enter both email and password.');
@@ -60,7 +52,7 @@ const SignIn = () => {
   return (
     <div className="SignIn-page">
       <h1>Sign in</h1>
-      {signinError && <p className="error-message">{signinError}</p>}
+      {SignInError && <p className="error-message">{SignInError}</p>}
       <form className="SignIn-form" onSubmit={handleSubmit}>
         <label htmlFor="username">Email:</label>
         <input
@@ -71,7 +63,7 @@ const SignIn = () => {
           onChange={handleChange}
           required
         />
-        {formErrors.email && <p className="error-message">{formErrors.email}</p>}
+        
         <label htmlFor="password">Password:</label>
         <input
           type="password"
@@ -81,7 +73,7 @@ const SignIn = () => {
           onChange={handleChange}
           required
         />
-        {formErrors.password && <p className="error-message">{formErrors.password}</p>}
+        
         <button type="submit">Sign in</button>
       </form>
       <p className="signup-link">

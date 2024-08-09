@@ -8,7 +8,7 @@ const SignIn = () => {
     password: ''
   });
   
-  const [signinError, setSignInError] = useState('');
+  const [SignInError, setSignInError] = useState('');
   const [formErrors, setFormErrors] = useState({}); 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,12 +30,13 @@ const SignIn = () => {
         },
         body: JSON.stringify(credentials),
       })
-      .then(async response => {
+      .then(response => {
         if (response.ok) {
           return response.json();
         } else {
-          const errorData = await response.json();
-          throw new Error(JSON.stringify(errorData));
+          return response.json().then(errorData => {
+            throw new Error(JSON.stringify(errorData));
+          });
         }
       })
       .then(data=>{
@@ -60,7 +61,7 @@ const SignIn = () => {
   return (
     <div className="SignIn-page">
       <h1>Sign in</h1>
-      {signinError && <p className="error-message">{signinError}</p>}
+      {signInError && <p className="error-message">{signInError}</p>}
       <form className="SignIn-form" onSubmit={handleSubmit}>
         <label htmlFor="username">Email:</label>
         <input
