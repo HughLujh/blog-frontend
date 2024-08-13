@@ -8,7 +8,7 @@ const NewPost = () => {
   const [tags, setTags] = useState('');
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const newErrors = {};
 
@@ -20,33 +20,11 @@ const NewPost = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      fetch('http://localhost:8080/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, summary, content, tags }),
-      })
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            return response.json().then(errorData => {
-              throw new Error(JSON.stringify(errorData));
-            });
-          }
-        })
-        .then(data => {
-          alert(`${data.message}`);
-          setErrors({});
-          setTitle('');
-          setSummary('');
-          setContent('');
-          setTags('');
-        })
-        .catch(error => {
-          console.error('Failed to create post:', error.message || error);
-        });
+      console.log({ title, content, tags });
+      setErrors({});
+      setTitle('');
+      setContent('');
+      setTags('');
     }
   };
 
@@ -66,17 +44,6 @@ const NewPost = () => {
             autoFocus
           />
           {errors.title && <div className="error">{errors.title}</div>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="summary">Summary:</label>
-          <textarea
-            id="summary"
-            value={summary}
-            onChange={(e) => setSummary(e.target.value)}
-            placeholder="Enter the summary"
-            required
-          ></textarea>
-          {errors.summary && <div className="error">{errors.summary}</div>}
         </div>
         <div className="form-group">
           <label htmlFor="content">Content:</label>

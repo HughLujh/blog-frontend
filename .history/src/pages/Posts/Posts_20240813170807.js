@@ -6,6 +6,7 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    // Function to fetch posts data
     const fetchPosts = async () => {
       try {
         const response = await fetch('http://localhost:8080/posts');
@@ -24,7 +25,7 @@ const Posts = () => {
     };
 
     fetchPosts();
-  }, []);
+  }, []); // Empty dependency array means this useEffect runs once when the component mounts
 
   return (
     <div className="posts-page">

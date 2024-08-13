@@ -8,7 +8,7 @@ const NewPost = () => {
   const [tags, setTags] = useState('');
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const newErrors = {};
 
@@ -20,33 +20,30 @@ const NewPost = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      fetch('http://localhost:8080/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, summary, content, tags }),
-      })
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            return response.json().then(errorData => {
-              throw new Error(JSON.stringify(errorData));
-            });
-          }
-        })
-        .then(data => {
-          alert(`${data.message}`);
+      try {
+        const response = await fetch('/api/posts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ title, summary, content, tags }),
+        });
+  
+        if (response.ok) {
+          console.log('Post created successfully');
           setErrors({});
           setTitle('');
           setSummary('');
           setContent('');
           setTags('');
-        })
-        .catch(error => {
-          console.error('Failed to create post:', error.message || error);
-        });
+        } else {
+          console.error('Failed to create post', response.statusText);
+        }
+      setErrors({});
+      setTitle('');
+      setSummary('');
+      setContent('');
+      setTags('');
     }
   };
 
@@ -72,7 +69,7 @@ const NewPost = () => {
           <textarea
             id="summary"
             value={summary}
-            onChange={(e) => setSummary(e.target.value)}
+            onChange={(e) => setContent(e.target.value)}
             placeholder="Enter the summary"
             required
           ></textarea>

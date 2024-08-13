@@ -3,50 +3,26 @@ import './NewPost.css';
 
 const NewPost = () => {
   const [title, setTitle] = useState('');
-  const [summary, setSummary] = useState('');
   const [content, setContent] = useState('');
   const [tags, setTags] = useState('');
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const newErrors = {};
 
     if (!title.trim()) newErrors.title = "Title is required.";
-    if (!summary.trim()) newErrors.summary = "Summary is required";
     if (!content.trim()) newErrors.content = "Content is required.";
     if (!tags.trim()) newErrors.tags = "Tags are required.";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      fetch('http://localhost:8080/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, summary, content, tags }),
-      })
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            return response.json().then(errorData => {
-              throw new Error(JSON.stringify(errorData));
-            });
-          }
-        })
-        .then(data => {
-          alert(`${data.message}`);
-          setErrors({});
-          setTitle('');
-          setSummary('');
-          setContent('');
-          setTags('');
-        })
-        .catch(error => {
-          console.error('Failed to create post:', error.message || error);
-        });
+      console.log({ title, description, tags });
+      setErrors({});
+      setTitle('');
+      setDescription('');
+      setTags('');
     }
   };
 
@@ -68,26 +44,15 @@ const NewPost = () => {
           {errors.title && <div className="error">{errors.title}</div>}
         </div>
         <div className="form-group">
-          <label htmlFor="summary">Summary:</label>
+          <label htmlFor="description">Description:</label>
           <textarea
-            id="summary"
-            value={summary}
-            onChange={(e) => setSummary(e.target.value)}
-            placeholder="Enter the summary"
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Enter the description"
             required
           ></textarea>
-          {errors.summary && <div className="error">{errors.summary}</div>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="content">Content:</label>
-          <textarea
-            id="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            placeholder="Enter the content"
-            required
-          ></textarea>
-          {errors.content && <div className="error">{errors.content}</div>}
+          {errors.description && <div className="error">{errors.description}</div>}
         </div>
         <div className="form-group">
           <label htmlFor="tags">Tags (comma-separated):</label>

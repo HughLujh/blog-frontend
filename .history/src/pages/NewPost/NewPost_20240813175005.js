@@ -37,7 +37,7 @@ const NewPost = () => {
           }
         })
         .then(data => {
-          alert(`${data.message}`);
+          alert(`Success: ${data.message}`);
           setErrors({});
           setTitle('');
           setSummary('');

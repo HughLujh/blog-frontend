@@ -6,6 +6,7 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    // Function to fetch posts data
     const fetchPosts = async () => {
       try {
         const response = await fetch('http://localhost:8080/posts');

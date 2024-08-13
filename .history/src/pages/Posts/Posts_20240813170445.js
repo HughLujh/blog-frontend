@@ -6,15 +6,16 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    // Function to fetch posts data
     const fetchPosts = async () => {
       try {
-        const response = await fetch('http://localhost:8080/posts');
+        const response = await fetch('http://localhost:8080/posts'); // Replace with your actual API endpoint
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
         if (result.message === "success") {
-          setPosts(result.data);
+          setPosts(result.data); // Use the "data" field from the response
         } else {
           console.error('Unexpected response format:', result);
         }
@@ -24,7 +25,7 @@ const Posts = () => {
     };
 
     fetchPosts();
-  }, []);
+  }, []); // Empty dependency array means this useEffect runs once when the component mounts
 
   return (
     <div className="posts-page">

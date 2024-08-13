@@ -20,33 +20,27 @@ const NewPost = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      fetch('http://localhost:8080/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, summary, content, tags }),
-      })
-        .then(response => {
+      try {
+          const response = await fetch('/api/posts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ title, summary, content, tags }),
+          });
           if (response.ok) {
-            return response.json();
+            console.log('Post created successfully');
+            setErrors({});
+            setTitle('');
+            setSummary('');
+            setContent('');
+            setTags('');
           } else {
-            return response.json().then(errorData => {
-              throw new Error(JSON.stringify(errorData));
-            });
+            console.error('Failed to create post', response.statusText);
           }
-        })
-        .then(data => {
-          alert(`${data.message}`);
-          setErrors({});
-          setTitle('');
-          setSummary('');
-          setContent('');
-          setTags('');
-        })
-        .catch(error => {
-          console.error('Failed to create post:', error.message || error);
-        });
+      }catch (error) {
+        console.error('An error occurred:', error);
+      }
     }
   };
 
@@ -72,7 +66,7 @@ const NewPost = () => {
           <textarea
             id="summary"
             value={summary}
-            onChange={(e) => setSummary(e.target.value)}
+            onChange={(e) => setContent(e.target.value)}
             placeholder="Enter the summary"
             required
           ></textarea>

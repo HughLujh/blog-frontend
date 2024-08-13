@@ -37,7 +37,7 @@ const NewPost = () => {
           }
         })
         .then(data => {
-          alert(`${data.message}`);
+          alert(${data.message});
           setErrors({});
           setTitle('');
           setSummary('');

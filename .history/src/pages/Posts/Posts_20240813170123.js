@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Posts.css';
 
@@ -8,16 +8,12 @@ const Posts = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('http://localhost:8080/posts');
+        const response = await fetch('https://your-api-endpoint.com/posts'); // Replace with your actual API endpoint
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        const result = await response.json();
-        if (result.message === "success") {
-          setPosts(result.data);
-        } else {
-          console.error('Unexpected response format:', result);
-        }
+        const data = await response.json();
+        setPosts(data);
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
@@ -36,13 +32,17 @@ const Posts = () => {
         {posts.map((post) => (
           <div key={post.id} className="post-card">
             <div className="post-header">
-              <h2>Post {post.id}</h2>
-              <span className="post-date">{new Date(post.createdAt).toLocaleString()}</span>
+              <h2>{post.title}</h2>
+              <span className="post-date">{post.createdAt}</span>
             </div>
-            <p>{post.summary}</p>
+            <p>{post.description}</p>
             <div className="post-footer">
               <div className="post-tags">
-                {/* Assuming tags should be displayed here, though not in response */}
+                {post.tags.map((tag, index) => (
+                  <span key={index} className="post-tag">
+                    {tag}
+                  </span>
+                ))}
               </div>
               <Link to={`/posts/${post.id}`} className="read-more">
                 Read More
