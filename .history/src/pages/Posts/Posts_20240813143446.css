@@ -14,7 +14,6 @@
   display: flex;
   justify-content: flex-end; /* Aligns the button to the right */
   margin-bottom: 30px; /* Adds space between the button and the posts list */
-  margin-right: 99px;
 }
 
 .new-post-button {
@@ -106,7 +105,7 @@
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .new-post-container {
     margin-right: 20px; /* Adjust for smaller screens */
   }

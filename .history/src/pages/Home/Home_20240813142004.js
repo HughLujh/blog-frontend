@@ -34,11 +34,11 @@ const Home = () => {
       <section className="featured-posts">
         <div className="posts-header">
           <h2>Featured Posts</h2>
-          <Link to="/posts" className="view-all">View All Posts</Link>
         </div>
         <div className="posts-container">
           {featuredPosts.map(post => (
             <div key={post.id} className="post-card">
+              <img src={post.image} alt={post.title} className="post-image" />
               <h3>{post.title}</h3>
               <p>{post.description}</p>
               <Link to={`/posts/${post.id}`} className="read-more">Read More</Link>

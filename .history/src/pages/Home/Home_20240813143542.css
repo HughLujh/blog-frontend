@@ -44,11 +44,12 @@
   display: block; /* Ensure it's on a new line */
   margin-top: 10px;
   text-align: right;
-  margin-right: 99px;
+
 }
 
 .view-all:hover {
   text-decoration: underline;
+  margin-right: 99px;
 }
 
 .posts-container {
@@ -121,10 +122,4 @@
   .view-all {
     font-size: 0.9rem;
   }
-  
-  .new-post-container {
-    margin-right: 20px; /* Adjust for smaller screens */
-  }
 }
-
-

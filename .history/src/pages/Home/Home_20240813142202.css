@@ -2,7 +2,6 @@
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
 }
 
 .hero-section {
@@ -27,28 +26,15 @@
 }
 
 .posts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
-  text-align: center;
 }
 
-.posts-header h2 {
+.featured-posts h2 {
   margin: 0;
   color: #333;
-}
-
-.view-all {
-  text-decoration: none;
-  color: #3498db;
-  font-weight: bold;
-  font-size: 1rem;
-  display: block; /* Ensure it's on a new line */
-  margin-top: 10px;
-  text-align: right;
-  margin-right: 99px;
-}
-
-.view-all:hover {
-  text-decoration: underline;
 }
 
 .posts-container {
@@ -117,14 +103,4 @@
     width: 90%;
     max-width: 100%;
   }
-
-  .view-all {
-    font-size: 0.9rem;
-  }
-  
-  .new-post-container {
-    margin-right: 20px; /* Adjust for smaller screens */
-  }
 }
-
-

@@ -105,9 +105,3 @@
 .read-more:hover {
   text-decoration: underline;
 }
-
-@media (max-width: 768px) {
-  .new-post-container {
-    margin-right: 20px; /* Adjust for smaller screens */
-  }
-}

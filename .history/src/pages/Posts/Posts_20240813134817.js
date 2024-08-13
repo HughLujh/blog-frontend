@@ -30,9 +30,7 @@ const Posts = () => {
   return (
     <div className="posts-page">
       <h1>Blog Posts</h1>
-      <div className="new-post-container">
-        <Link to="/new-post" className="new-post-button">New Post</Link>
-      </div>
+      <Link to="/new-post" className="new-post-button">New Post</Link>
       <div className="posts-container">
         {posts.map((post) => (
           <div key={post.id} className="post-card">

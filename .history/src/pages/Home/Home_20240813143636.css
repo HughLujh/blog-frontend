@@ -121,10 +121,12 @@
   .view-all {
     font-size: 0.9rem;
   }
-  
   .new-post-container {
     margin-right: 20px; /* Adjust for smaller screens */
   }
 }
 
+@media (max-width: 768px) {
+
+}
 

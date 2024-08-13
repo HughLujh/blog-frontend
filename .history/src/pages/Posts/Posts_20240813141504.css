@@ -1,6 +1,6 @@
 .posts-page {
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1200px; /* Ensure this matches the width of the button container */
   margin: 0 auto;
 }
 
@@ -28,7 +28,7 @@
   width: auto;
   max-width: 200px;
   text-align: center;
-  text-decoration: none;
+  text-decoration: none; /* Remove underline for the link */
 }
 
 .new-post-button:hover {
@@ -39,8 +39,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  width: 100%;
-  justify-content: center; /* Center-align the cards */
+  width: 80%;
 }
 
 .post-card {
@@ -48,11 +47,10 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
+  width: 80%; /* Ensures the card takes 80% of the page width */
+  margin: 0 auto; /* Centers the post card horizontally */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
-  width: 80%; /* Set width to 80% */
-  max-width: 1000px; /* Optional: Limit maximum width */
-  margin: 0 auto; /* Center the card */
 }
 
 .post-card:hover {
@@ -104,10 +102,4 @@
 
 .read-more:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .new-post-container {
-    margin-right: 20px; /* Adjust for smaller screens */
-  }
 }

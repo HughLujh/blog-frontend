@@ -12,8 +12,8 @@
 
 .new-post-container {
   display: flex;
-  justify-content: flex-end; /* Aligns the button to the right */
-  margin-bottom: 30px; /* Adds space between the button and the posts list */
+  justify-content: flex-end;
+  margin-bottom: 30px;
   margin-right: 99px;
 }
 
@@ -40,7 +40,7 @@
   flex-wrap: wrap;
   gap: 20px;
   width: 100%;
-  justify-content: center; /* Center-align the cards */
+  justify-content: center;
 }
 
 .post-card {
@@ -104,10 +104,4 @@
 
 .read-more:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .new-post-container {
-    margin-right: 20px; /* Adjust for smaller screens */
-  }
 }

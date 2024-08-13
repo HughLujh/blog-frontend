@@ -2,7 +2,6 @@
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
 }
 
 .hero-section {
@@ -27,28 +26,15 @@
 }
 
 .posts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
-  text-align: center;
 }
 
-.posts-header h2 {
+.featured-posts h2 {
   margin: 0;
   color: #333;
-}
-
-.view-all {
-  text-decoration: none;
-  color: #3498db;
-  font-weight: bold;
-  font-size: 1rem;
-  display: block; /* Ensure it's on a new line */
-  margin-top: 10px;
-  text-align: right;
-  margin-right: 99px;
-}
-
-.view-all:hover {
-  text-decoration: underline;
 }
 
 .posts-container {
@@ -62,12 +48,17 @@
   background-color: #f8f8f8;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 20px;
+  padding: 15px;
   width: 100%;
   max-width: 400px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
+  max-height: 500px; /* Adjust based on your needs */
+  overflow: hidden; /* Hide overflow content */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .post-card:hover {
@@ -83,14 +74,14 @@
 }
 
 .post-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* Slightly smaller font size */
   margin-bottom: 10px;
   color: #2c3e50;
 }
 
 .post-card p {
-  font-size: 1rem;
-  margin-bottom: 20px;
+  font-size: 0.9rem; /* Slightly smaller font size */
+  margin-bottom: 15px;
   color: #7f8c8d;
 }
 
@@ -99,7 +90,7 @@
   color: #3498db;
   font-weight: bold;
   display: inline-block;
-  margin-top: 10px;
+  margin-top: auto; /* Push 'Read More' to the bottom */
 }
 
 .read-more:hover {
@@ -117,14 +108,4 @@
     width: 90%;
     max-width: 100%;
   }
-
-  .view-all {
-    font-size: 0.9rem;
-  }
-  
-  .new-post-container {
-    margin-right: 20px; /* Adjust for smaller screens */
-  }
 }
-
-

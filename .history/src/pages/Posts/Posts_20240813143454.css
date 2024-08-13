@@ -14,7 +14,6 @@
   display: flex;
   justify-content: flex-end; /* Aligns the button to the right */
   margin-bottom: 30px; /* Adds space between the button and the posts list */
-  margin-right: 99px;
 }
 
 .new-post-button {

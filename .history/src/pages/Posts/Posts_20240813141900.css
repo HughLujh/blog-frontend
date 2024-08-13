@@ -14,7 +14,6 @@
   display: flex;
   justify-content: flex-end; /* Aligns the button to the right */
   margin-bottom: 30px; /* Adds space between the button and the posts list */
-  margin-right: 99px;
 }
 
 .new-post-button {
@@ -28,7 +27,7 @@
   width: auto;
   max-width: 200px;
   text-align: center;
-  text-decoration: none;
+  text-decoration: none; /* Remove underline for the link */
 }
 
 .new-post-button:hover {
@@ -104,10 +103,4 @@
 
 .read-more:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .new-post-container {
-    margin-right: 20px; /* Adjust for smaller screens */
-  }
 }

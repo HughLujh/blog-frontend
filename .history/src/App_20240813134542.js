@@ -6,7 +6,7 @@ import Posts from './pages/Posts/Posts';
 import Contact from './pages/Contact/Contact';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
-import NewPost from './pages/NewPost/NewPost';
+import NewPost from './pages/NewPost/SignUp';
 
 
 function App() {

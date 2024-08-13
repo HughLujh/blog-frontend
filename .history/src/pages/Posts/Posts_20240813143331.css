@@ -12,9 +12,8 @@
 
 .new-post-container {
   display: flex;
-  justify-content: flex-end; /* Aligns the button to the right */
+  justify-content: center; /* Center-aligns the button */
   margin-bottom: 30px; /* Adds space between the button and the posts list */
-  margin-right: 99px;
 }
 
 .new-post-button {
@@ -86,28 +85,4 @@
 
 .post-tags {
   display: flex;
-  gap: 10px;
-}
-
-.post-tag {
-  background-color: #e0e0e0;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-}
-
-.read-more {
-  text-decoration: none;
-  color: #3498db;
-  font-weight: bold;
-}
-
-.read-more:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .new-post-container {
-    margin-right: 20px; /* Adjust for smaller screens */
-  }
-}
+  gap: 10px
