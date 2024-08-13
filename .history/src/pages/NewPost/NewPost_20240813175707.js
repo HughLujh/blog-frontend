@@ -27,12 +27,13 @@ const NewPost = () => {
         },
         body: JSON.stringify({ title, summary, content, tags }),
       })
-        .then(async response => {
+        .then(response => {
           if (response.ok) {
             return response.json();
           } else {
-            const errorData = await response.json();
-            throw new Error(JSON.stringify(errorData));
+            return response.json().then(errorData => {
+              throw new Error(JSON.stringify(errorData));
+            });
           }
         })
         .then(data => {
