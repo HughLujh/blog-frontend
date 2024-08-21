@@ -10,7 +10,7 @@ const Posts = () => {
       try {
         const response = await fetch('http://localhost:8080/posts',{
           method: 'GET',
-        });
+      });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -38,7 +38,7 @@ const Posts = () => {
         {posts.map((post) => (
           <div key={post.id} className="post-card">
             <div className="post-header">
-              <h2>{post.title}</h2>
+              <h2>Post {post.id}</h2>
               <span className="post-date">{new Date(post.createdAt).toLocaleString()}</span>
             </div>
             <p>{post.summary}</p>

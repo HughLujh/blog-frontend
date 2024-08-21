@@ -48,9 +48,6 @@ const Home = () => {
               </div>
               <p>{post.summary}</p>
               <div className="post-footer">
-              <div className="post-tags">
-                {/* Assuming tags should be displayed here, though not in response */}
-              </div>
                 <Link to={`/posts/${post.id}`} className="read-more">
                   Read More
                 </Link>

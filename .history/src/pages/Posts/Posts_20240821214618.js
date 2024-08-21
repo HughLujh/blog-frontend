@@ -10,7 +10,7 @@ const Posts = () => {
       try {
         const response = await fetch('http://localhost:8080/posts',{
           method: 'GET',
-        });
+      });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
