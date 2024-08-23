@@ -100,7 +100,7 @@
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .view-all {
     font-size: 0.9rem;
   }
@@ -108,4 +108,4 @@
   .new-post-container {
     margin-right: 20px;
   }
-}
+} */

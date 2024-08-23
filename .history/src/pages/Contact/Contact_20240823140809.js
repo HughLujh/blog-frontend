@@ -49,7 +49,7 @@ const Contact = () => {
           setFormData({
             name: '',
             email: '',
-            subject: '',
+            title: '',
             message: ''
           });
           setFormSubmitted(true);

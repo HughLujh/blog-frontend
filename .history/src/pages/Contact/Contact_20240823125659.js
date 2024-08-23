@@ -5,11 +5,10 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    title: '',
     message: ''
   });
   
-  const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
   
   const handleChange = (e) => {
@@ -23,16 +22,14 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
-    
-    // Form validation
     if (!formData.name.trim()) newErrors.name = "Name is required.";
     if (!formData.email.trim()) newErrors.email = "Email is required.";
-    if (!formData.subject.trim()) newErrors.subject = "Subject is required.";
+    if (!formData.title.trim()) newErrors.title = "Title is required.";
     if (!formData.message.trim()) newErrors.message = "Message is required.";
-    
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-    } else {
+    }else {
       try {
         const response = await fetch('http://localhost:8080/contact', {
           method: 'POST',
@@ -49,10 +46,9 @@ const Contact = () => {
           setFormData({
             name: '',
             email: '',
-            subject: '',
+            title: '',
             message: ''
           });
-          setFormSubmitted(true);
         } else {
           const errorData = await response.json();
           throw new Error(JSON.stringify(errorData));
@@ -61,6 +57,7 @@ const Contact = () => {
         console.error('Failed to send message:', error.message || error);
       }
     }
+  };
   };
   
   return (
@@ -79,7 +76,6 @@ const Contact = () => {
             onChange={handleChange}
             required
           />
-          {errors.name && <span className="error">{errors.name}</span>}
           
           <label htmlFor="email">Email:</label>
           <input
@@ -90,19 +86,15 @@ const Contact = () => {
             onChange={handleChange}
             required
           />
-          {errors.email && <span className="error">{errors.email}</span>}
-          
-          <label htmlFor="subject">Subject:</label>
+          <label htmlFor="title">Title:</label>
           <input
             type="text"
-            id="subject"
-            name="subject"
-            value={formData.subject}
+            id="title"
+            name="title"
+            value={formData.title}
             onChange={handleChange}
             required
           />
-          {errors.subject && <span className="error">{errors.subject}</span>}
-          
           <label htmlFor="message">Message:</label>
           <textarea
             id="message"
@@ -111,7 +103,6 @@ const Contact = () => {
             onChange={handleChange}
             required
           ></textarea>
-          {errors.message && <span className="error">{errors.message}</span>}
           
           <button type="submit">Send Message</button>
         </form>

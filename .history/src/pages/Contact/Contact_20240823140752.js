@@ -49,7 +49,7 @@ const Contact = () => {
           setFormData({
             name: '',
             email: '',
-            subject: '',
+            title: '',
             message: ''
           });
           setFormSubmitted(true);
@@ -95,13 +95,13 @@ const Contact = () => {
           <label htmlFor="subject">Subject:</label>
           <input
             type="text"
-            id="subject"
-            name="subject"
-            value={formData.subject}
+            id="title"
+            name="title"
+            value={formData.title}
             onChange={handleChange}
             required
           />
-          {errors.subject && <span className="error">{errors.subject}</span>}
+          {errors.title && <span className="error">{errors.title}</span>}
           
           <label htmlFor="message">Message:</label>
           <textarea
