@@ -46,7 +46,6 @@ const Contact = () => {
           const data = await response.json();
           alert(`Success: ${data.message}`);
           setErrors({});
-
           setFormData({
             name: '',
             email: '',

@@ -8,10 +8,10 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  
+
   const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,17 +19,17 @@ const Contact = () => {
       [name]: value
     });
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
-    
+
     // Form validation
     if (!formData.name.trim()) newErrors.name = "Name is required.";
     if (!formData.email.trim()) newErrors.email = "Email is required.";
     if (!formData.subject.trim()) newErrors.subject = "Subject is required.";
     if (!formData.message.trim()) newErrors.message = "Message is required.";
-    
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
@@ -46,7 +46,6 @@ const Contact = () => {
           const data = await response.json();
           alert(`Success: ${data.message}`);
           setErrors({});
-
           setFormData({
             name: '',
             email: '',
@@ -63,7 +62,7 @@ const Contact = () => {
       }
     }
   };
-  
+
   return (
     <div className="contact-page">
       <h1>Contact Us</h1>
@@ -81,7 +80,7 @@ const Contact = () => {
             required
           />
           {errors.name && <span className="error">{errors.name}</span>}
-          
+
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -92,7 +91,7 @@ const Contact = () => {
             required
           />
           {errors.email && <span className="error">{errors.email}</span>}
-          
+
           <label htmlFor="subject">Subject:</label>
           <input
             type="text"
@@ -103,7 +102,7 @@ const Contact = () => {
             required
           />
           {errors.subject && <span className="error">{errors.subject}</span>}
-          
+
           <label htmlFor="message">Message:</label>
           <textarea
             id="message"
@@ -113,7 +112,7 @@ const Contact = () => {
             required
           ></textarea>
           {errors.message && <span className="error">{errors.message}</span>}
-          
+
           <button type="submit">Send Message</button>
         </form>
       )}

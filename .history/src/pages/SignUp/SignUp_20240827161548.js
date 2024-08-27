@@ -122,7 +122,7 @@ const SignUp = () => {
           onChange={handleChange}
           required
         />
-        {signupConfirmPasswordError && <p className="error-message">{signupConfirmPasswordError}</p>}
+        {signupConfirmPasswordError && <p className="error-message">{signupEmailError}</p>}
 
         <button type="submit">Sign up</button>
         <p>

@@ -28,7 +28,7 @@ const SignUp = () => {
   const handleSubmit = (e) => {
       e.preventDefault();
       if (formData.password !== formData.confirmPassword) {
-        setSignupConfirmPasswordError('Passwords do not match.');
+        setSignupError('Passwords do not match.');
         return;
       }
       if (formData.username && formData.email && formData.password) {
@@ -122,8 +122,7 @@ const SignUp = () => {
           onChange={handleChange}
           required
         />
-        {signupConfirmPasswordError && <p className="error-message">{signupConfirmPasswordError}</p>}
-
+        
         <button type="submit">Sign up</button>
         <p>
         Already have an account? <Link to="/signin">Sign In</Link>

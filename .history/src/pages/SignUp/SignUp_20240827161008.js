@@ -11,11 +11,8 @@ const SignUp = () => {
   });
   
   const [signupError, setSignupError] = useState('');
-  const [signupUsernameError, setSignupUsernameError] = useState('');
-  const [signupEmailError, setSignupEmailError] = useState(''); 
   const [signupPasswordError, setSignupPasswordError] = useState('');
-  const [signupConfirmPasswordError, setSignupConfirmPasswordError] = useState('');
-
+  const [formErrors, setFormErrors] = useState({}); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +25,7 @@ const SignUp = () => {
   const handleSubmit = (e) => {
       e.preventDefault();
       if (formData.password !== formData.confirmPassword) {
-        setSignupConfirmPasswordError('Passwords do not match.');
+        setSignupError('Passwords do not match.');
         return;
       }
       if (formData.username && formData.email && formData.password) {
@@ -52,24 +49,20 @@ const SignUp = () => {
       .then(data => {
         console.log('Success:', data);
         setSignupError('');
-        setSignupEmailError('');
-        setSignupUsernameError('');
-        setSignupPasswordError('');
+        setFormErrors({});
       })
       .catch((error) => {
         console.error('Error:', error);
         try {
           const errorData = JSON.parse(error.message);
-          if(errorData.errors.username){
-            setSignupUsernameError(errorData.errors.username);
-          }
-          if(errorData.errors.email){
-            setSignupEmailError(errorData.errors.email);
+          if(errorData.errors.password){
+            setSignupPasswordError(errorData.errors.password);
           }
           if(errorData.errors.password){
             setSignupPasswordError(errorData.errors.password);
           }
           setSignupError(errorData.message || 'An error occurred');
+          setFormErrors(errorData.errors || {});
         } catch (e) {
           setSignupError('An unexpected error occurred');
         }      });
@@ -92,7 +85,7 @@ const SignUp = () => {
           onChange={handleChange}
           required
         />
-        {signupUsernameError && <p className="error-message">{signupUsernameError}</p>}
+        
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -102,7 +95,7 @@ const SignUp = () => {
           onChange={handleChange}
           required
         />
-        {signupEmailError && <p className="error-message">{signupEmailError}</p>}
+        {formErrors.email && <p className="error-message">{formErrors.email}</p>}
         <label htmlFor="password">Password:</label>
         <input
           type="password"
@@ -122,8 +115,7 @@ const SignUp = () => {
           onChange={handleChange}
           required
         />
-        {signupConfirmPasswordError && <p className="error-message">{signupConfirmPasswordError}</p>}
-
+        
         <button type="submit">Sign up</button>
         <p>
         Already have an account? <Link to="/signin">Sign In</Link>
