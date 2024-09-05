@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../features/user/userSlice';
+import { useSelector } from 'react-redux'; // Import the useSelector hook
 import './NavBar.css';
-import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
   const dispatch = useDispatch();
