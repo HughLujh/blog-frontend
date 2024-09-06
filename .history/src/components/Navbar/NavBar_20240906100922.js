@@ -27,9 +27,7 @@ const NavBar = () => {
   const handleIconClick = () => {
     setShowSearch(!showSearch);
   };
-  const handleSearchClick = () => {
-    setShowSearch(!showSearch);
-  };
+
   return (
     <div>
     <nav className="navbar">

@@ -27,9 +27,7 @@ const NavBar = () => {
   const handleIconClick = () => {
     setShowSearch(!showSearch);
   };
-  const handleSearchClick = () => {
-    setShowSearch(!showSearch);
-  };
+
   return (
     <div>
     <nav className="navbar">
@@ -55,12 +53,7 @@ const NavBar = () => {
           <span className="material-symbols-outlined" onClick={handleIconClick}>
               search
             </span>
-           
-          </li>
-        </ul>
-      </nav>
-      <div className="navbar-search">
-      {showSearch && (
+            {showSearch && (
               <>
                 <input
                   type="text"
@@ -69,12 +62,12 @@ const NavBar = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                 />
-                <span className="material-symbols-outlined" onClick={handleSearchClick}>
-                              search
-                            </span>
-                          </>
+                <button onClick={handleSearch}>Search</button>
+              </>
             )}
-      </div>
+          </li>
+        </ul>
+      </nav>
     </div>
  
   );

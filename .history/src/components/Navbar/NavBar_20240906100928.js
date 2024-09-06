@@ -27,7 +27,7 @@ const NavBar = () => {
   const handleIconClick = () => {
     setShowSearch(!showSearch);
   };
-  const handleSearchClick = () => {
+  const handleIconClick = () => {
     setShowSearch(!showSearch);
   };
   return (
