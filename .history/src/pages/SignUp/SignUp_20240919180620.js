@@ -17,7 +17,6 @@ const SignUp = () => {
   const [signupEmailError, setSignupEmailError] = useState(''); 
   const [signupPasswordError, setSignupPasswordError] = useState('');
   const [signupConfirmPasswordError, setSignupConfirmPasswordError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
 
   const navigate = useNavigate();
 
@@ -55,7 +54,7 @@ const SignUp = () => {
 
         // Redirect to login page after a short delay
         setTimeout(() => {
-          navigate('/signin'); // Redirect to login page
+          navigate('/login'); // Redirect to login page
         }, 2000); // 2 seconds delay
 
       } catch (error) {
@@ -83,7 +82,6 @@ const SignUp = () => {
   return (
     <div className="signup-page">
       <h1>Sign Up</h1>
-      {successMessage && <p className="success">{successMessage}</p>}
       {signupError && <p className="error-message">{signupError}</p>}
       <form className="signup-form" onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>

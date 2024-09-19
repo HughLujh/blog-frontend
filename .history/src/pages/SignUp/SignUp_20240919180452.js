@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { api } from '../../config/apiConfig'; // Import Axios instance
 import './SignUp.css';
 
@@ -17,9 +17,6 @@ const SignUp = () => {
   const [signupEmailError, setSignupEmailError] = useState(''); 
   const [signupPasswordError, setSignupPasswordError] = useState('');
   const [signupConfirmPasswordError, setSignupConfirmPasswordError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,15 +45,12 @@ const SignUp = () => {
         const response = await api.post('sign-up', formData);
 
         console.log('Success:', response.data);
-        setSuccessMessage('Sign up successful! Redirecting to login page...');
 
         // Clear form data after successful submission
         setFormData(initialFormData);
 
-        // Redirect to login page after a short delay
-        setTimeout(() => {
-          navigate('/signin'); // Redirect to login page
-        }, 2000); // 2 seconds delay
+        // Optionally redirect or show a success message
+        // Example: window.location.href = '/login';
 
       } catch (error) {
         console.error('Error:', error);
@@ -83,7 +77,6 @@ const SignUp = () => {
   return (
     <div className="signup-page">
       <h1>Sign Up</h1>
-      {successMessage && <p className="success">{successMessage}</p>}
       {signupError && <p className="error-message">{signupError}</p>}
       <form className="signup-form" onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>

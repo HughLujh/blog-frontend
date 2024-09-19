@@ -2,18 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import { api } from "../../config/apiConfig";
-
 const Home = () => {
   const [featuredPosts, setFeaturedPosts] = useState([]);
 
   useEffect(() => {
     const fetchFeaturedPosts = async () => {
       try {
-        const response = await api.get('posts'); 
-        if (response.data.message === "success") {
-          setFeaturedPosts(response.data.data);
+        const response = await fetch('http://localhost:8080/posts', {
+          method: 'GET',
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        if (result.message === "success") {
+          setFeaturedPosts(result.data);
         } else {
-          console.error('Unexpected response format:', response.data);
+          console.error('Unexpected response format:', result);
         }
       } catch (error) {
         console.error('Error fetching posts:', error);

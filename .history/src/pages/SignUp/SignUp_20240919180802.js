@@ -55,7 +55,7 @@ const SignUp = () => {
 
         // Redirect to login page after a short delay
         setTimeout(() => {
-          navigate('/signin'); // Redirect to login page
+          navigate('/login'); // Redirect to login page
         }, 2000); // 2 seconds delay
 
       } catch (error) {

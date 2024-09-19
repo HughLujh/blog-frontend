@@ -9,9 +9,9 @@ const Home = () => {
   useEffect(() => {
     const fetchFeaturedPosts = async () => {
       try {
-        const response = await api.get('posts'); 
+        const response = await api.get('posts'); // Use Axios for GET request
         if (response.data.message === "success") {
-          setFeaturedPosts(response.data.data);
+          setFeaturedPosts(response.data.data); // Axios directly returns data in `response.data`
         } else {
           console.error('Unexpected response format:', response.data);
         }
