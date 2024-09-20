@@ -1,45 +1,36 @@
-import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { checkLoginStatus } from './features/user/userSlice';
-import NavBar from './components/NavBar/NavBar';
-import Home from './pages/Home/Home';
-import Posts from './pages/Posts/Posts';
-import Contact from './pages/Contact/Contact';
-import SignIn from './pages/SignIn/SignIn';
-import SignUp from './pages/SignUp/SignUp';
-import NewPost from './pages/NewPost/NewPost';
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import React, { Fragment, Suspense, lazy } from "react";
+import { ThemeProvider, StyledEngineProvider, CssBaseline } from "@mui/material";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import theme from "./theme";
+import GlobalStyles from "./GlobalStyles";
+import Pace from "./shared/components/Pace";
 
-const App = () => {
-  const dispatch = useDispatch();
-  const { loading, loggedIn } = useSelector((state) => state.user);
+const LoggedInComponent = lazy(() => import("./logged_in/components/Main"));
 
-  useEffect(() => {
-    dispatch(checkLoginStatus());
-  }, [dispatch]);
+const LoggedOutComponent = lazy(() => import("./logged_out/components/Main"));
 
+function App() {
   return (
-    <div>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/contact" element={<Contact />} />
-
-        {/* Protected Route for New Post */}
-        <Route path="/new-post" element={<ProtectedRoute element={<NewPost />} />} />
-
-        {/* Auth Routes */}
-        {!loggedIn && (
-          <>
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-          </>
-        )}
-      </Routes>
-    </div>
+    <BrowserRouter>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <GlobalStyles />
+          <Pace color={theme.palette.primary.light} />
+          <Suspense fallback={<Fragment />}>
+            <Switch>
+              <Route path="/c">
+                <LoggedInComponent />
+              </Route>
+              <Route>
+                <LoggedOutComponent />
+              </Route>
+            </Switch>
+          </Suspense>
+        </ThemeProvider>
+      </StyledEngineProvider>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
