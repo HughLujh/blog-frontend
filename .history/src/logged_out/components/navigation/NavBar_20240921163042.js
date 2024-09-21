@@ -30,6 +30,10 @@ const styles = theme => ({
   },
   noDecoration: {
     textDecoration: "none !important"
+  },
+  noLinkDecoration: {
+    textDecoration: "none !important",
+    color: "inherit"                  
   }
 });
 

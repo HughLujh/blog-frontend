@@ -58,7 +58,7 @@ const styles = (theme) => ({
   },
   wrapper: {
     position: "relative",
-    backgroundColor: theme.palette.common.darkBlack,
+    backgroundColor: theme.palette.secondary.main,
     paddingBottom: theme.spacing(2),
   },
   image: {

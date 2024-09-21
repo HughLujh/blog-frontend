@@ -30,6 +30,10 @@ const styles = theme => ({
   },
   noDecoration: {
     textDecoration: "none !important"
+  },
+  noLinkDecoration: {
+    textDecoration: "none !important",
+    color: "inherit"                  
   }
 });
 
@@ -72,7 +76,7 @@ function NavBar(props) {
           <div>
             <Typography
               variant="h4"
-              className={classNames(classes.brandText,classes.noDecoration)}
+              className={classes.brandText}
               display="inline"
               color="primary"
               component={Link}
@@ -82,7 +86,7 @@ function NavBar(props) {
             </Typography>
             <Typography
               variant="h4"
-              className={classNames(classes.brandText,classes.noDecoration)}
+              className={classNames(classes.brandText,classes.noLinkDecoration)}
               display="inline"
               color="secondary"
               component={Link}

@@ -74,15 +74,14 @@ const styles = (theme) => ({
 });
 
 const infos = [
-  // {
-  //   icon: <PhoneIcon />,
-  //   description: "+1 555 123456",
-  // },
+  {
+    icon: <PhoneIcon />,
+    description: "+1 555 123456",
+  },
   {
     icon: <MailIcon />,
-    description: "Hughlujh@gmail.com",
-  }
-  // ,
+    description: "support@company.com",
+  },
 ];
 
 const socialIcons = [
@@ -132,7 +131,7 @@ const socialIcons = [
       </svg>
     ),
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/jiahao-lu-64061926a/",
+    href: "https://www.linkedin.com/",
   }
   // ,
   // {
@@ -173,7 +172,7 @@ function Footer(props) {
                   <TextField
                     variant="outlined"
                     multiline
-                    placeholder="Get in touch with us (Under Development)"
+                    placeholder="Get in touch with us"
                     InputProps={{
                       className: classes.whiteBg,
                       "aria-label": "Get in Touch",
@@ -226,10 +225,11 @@ function Footer(props) {
           </Hidden>
           <Grid item xs={12} md={6} lg={4}>
             <Typography variant="h6" paragraph className="text-white">
-              About Me
+              About the Company
             </Typography>
             <Typography style={{ color: "#8f9296" }} paragraph>
-            Hey, I’m Jiahao (or Hugh)—a Computer Science grad who’s equally at home debugging code as I am shooting hoops. With a 6.545/7 GPA, I've tackled everything from building sleek apps with React to optimizing APIs with Spring Boot. I love making tech work smarter, not harder. When I’m not coding, you’ll find me at the gym or trying out the latest JavaScript framework. Ready to bring innovative solutions to life—and maybe sneak in a basketball game or two!
+              Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
+              euismod convallis velit, eu auctor lacus vehicula sit amet.
             </Typography>
             <Box display="flex">
               {socialIcons.map((socialIcon, index) => (

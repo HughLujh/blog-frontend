@@ -22,7 +22,7 @@ function App() {
               <Route path="/c">
                 <LoggedInComponent />
               </Route>
-              <Route path="/">
+              <Route path='/'>
                 <LoggedOutComponent />
               </Route>
             </Switch>

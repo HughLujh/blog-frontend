@@ -1,7 +1,6 @@
 import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import classNames from 'classnames';
 import { AppBar, Toolbar, Typography, Button, Hidden, IconButton } from "@mui/material";
 import withStyles from '@mui/styles/withStyles';
 import MenuIcon from "@mui/icons-material/Menu";
@@ -72,21 +71,21 @@ function NavBar(props) {
           <div>
             <Typography
               variant="h4"
-              className={classNames(classes.brandText,classes.noDecoration)}
+              className={classes.brandText}
               display="inline"
               color="primary"
               component={Link}
-              to="/"
+              href="/Home"
             >
               Code
             </Typography>
             <Typography
               variant="h4"
-              className={classNames(classes.brandText,classes.noDecoration)}
+              className={classes.brandText}
               display="inline"
               color="secondary"
               component={Link}
-              to="/"
+              href="/Home"
             >
               Worm
             </Typography>
