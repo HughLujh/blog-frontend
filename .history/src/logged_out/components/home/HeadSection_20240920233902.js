@@ -124,7 +124,7 @@ function HeadSection(props) {
                             variant={isWidthUpLg ? "h6" : "body1"}
                             color="textSecondary"
                           >
-                            I am not bald yet!
+                            I am not bold yet!
                           </Typography>
                         </Box>
                         <Button
