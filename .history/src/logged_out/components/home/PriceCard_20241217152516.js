@@ -1,4 +1,3 @@
-// disabled for later use
 import React from "react";
 import PropTypes from "prop-types";
 import { Typography, Box } from "@mui/material";

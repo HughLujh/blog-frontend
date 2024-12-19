@@ -141,48 +141,48 @@ function ShareButtons(props) {
               </Grid>
             );
           }
-          // case "Reddit": {
-          //   return (
-          //     <Grid item key={index}>
-          //       <ColoredButton
-          //         color="#5f99cf"
-          //         className={forceWhite ? "text-white" : null}
-          //         classes={{ label: forceWhite ? "text-white" : null }}
-          //         variant="contained"
-          //         disableElevation
-          //         href={`https://reddit.com/submit/?url=${site}&amp;resubmit=true&amp;&title=${title}`}
-          //         startIcon={
-          //           <SvgIcon>
-          //             <path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z" />
-          //           </SvgIcon>
-          //         }
-          //       >
-          //         Share on Reddit
-          //       </ColoredButton>
-          //     </Grid>
-          //   );
-          // }
-          // case "XING": {
-          //   return (
-          //     <Grid item key={index}>
-          //       <ColoredButton
-          //         color="#1a7576"
-          //         className={forceWhite ? "text-white" : null}
-          //         classes={{ label: forceWhite ? "text-white" : null }}
-          //         variant="contained"
-          //         disableElevation
-          //         href={`https://www.xing.com/app/user?op=share;url=${site};title=${description}`}
-          //         startIcon={
-          //           <SvgIcon>
-          //             <path d="M10.2 9.7l-3-5.4C7.2 4 7 4 6.8 4h-5c-.3 0-.4 0-.5.2v.5L4 10 .4 16v.5c0 .2.2.3.4.3h5c.3 0 .4 0 .5-.2l4-6.6v-.5zM24 .2l-.5-.2H18s-.2 0-.3.3l-8 14v.4l5.2 9c0 .2 0 .3.3.3h5.4s.3 0 .4-.2c.2-.2.2-.4 0-.5l-5-8.8L24 .7V.2z" />
-          //           </SvgIcon>
-          //         }
-          //       >
-          //         Share on XING
-          //       </ColoredButton>
-          //     </Grid>
-          //   );
-          // }
+          case "Reddit": {
+            return (
+              <Grid item key={index}>
+                <ColoredButton
+                  color="#5f99cf"
+                  className={forceWhite ? "text-white" : null}
+                  classes={{ label: forceWhite ? "text-white" : null }}
+                  variant="contained"
+                  disableElevation
+                  href={`https://reddit.com/submit/?url=${site}&amp;resubmit=true&amp;&title=${title}`}
+                  startIcon={
+                    <SvgIcon>
+                      <path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z" />
+                    </SvgIcon>
+                  }
+                >
+                  Share on Reddit
+                </ColoredButton>
+              </Grid>
+            );
+          }
+          case "XING": {
+            return (
+              <Grid item key={index}>
+                <ColoredButton
+                  color="#1a7576"
+                  className={forceWhite ? "text-white" : null}
+                  classes={{ label: forceWhite ? "text-white" : null }}
+                  variant="contained"
+                  disableElevation
+                  href={`https://www.xing.com/app/user?op=share;url=${site};title=${description}`}
+                  startIcon={
+                    <SvgIcon>
+                      <path d="M10.2 9.7l-3-5.4C7.2 4 7 4 6.8 4h-5c-.3 0-.4 0-.5.2v.5L4 10 .4 16v.5c0 .2.2.3.4.3h5c.3 0 .4 0 .5-.2l4-6.6v-.5zM24 .2l-.5-.2H18s-.2 0-.3.3l-8 14v.4l5.2 9c0 .2 0 .3.3.3h5.4s.3 0 .4-.2c.2-.2.2-.4 0-.5l-5-8.8L24 .7V.2z" />
+                    </SvgIcon>
+                  }
+                >
+                  Share on XING
+                </ColoredButton>
+              </Grid>
+            );
+          }
           case "WhatsApp": {
             return (
               <Grid item key={index}>
@@ -204,72 +204,72 @@ function ShareButtons(props) {
               </Grid>
             );
           }
-          // case "Hacker News": {
-          //   return (
-          //     <Grid item key={index}>
-          //       <ColoredButton
-          //         color="#ff6600"
-          //         className={forceWhite ? "text-white" : null}
-          //         classes={{ label: forceWhite ? "text-white" : null }}
-          //         variant="contained"
-          //         disableElevation
-          //         href={`https://news.ycombinator.com/submitlink?u=${site}&amp;&t=${description}`}
-          //         startIcon={
-          //           <SvgIcon>
-          //             <path
-          //               fill-rule="evenodd"
-          //               d="M60.94 82.314L17 0h20.08l25.85 52.093c.397.927.86 1.888 1.39 2.883.53.994.995 2.02 1.393 3.08.265.4.463.764.596 1.095.13.334.262.63.395.898.662 1.325 1.26 2.618 1.79 3.877.53 1.26.993 2.42 1.39 3.48 1.06-2.254 2.22-4.673 3.48-7.258 1.26-2.585 2.552-5.27 3.877-8.052L103.49 0h18.69L77.84 83.308v53.087h-16.9v-54.08z"
-          //             ></path>
-          //           </SvgIcon>
-          //         }
-          //       >
-          //         Share on Hacker News
-          //       </ColoredButton>
-          //     </Grid>
-          //   );
-          // }
-          // case "VK": {
-          //   return (
-          //     <Grid item key={index}>
-          //       <ColoredButton
-          //         color="#507299"
-          //         className={forceWhite ? "text-white" : null}
-          //         classes={{ label: forceWhite ? "text-white" : null }}
-          //         variant="contained"
-          //         disableElevation
-          //         href={`https://vk.com/share.php?title=${description}&amp;&url=${site}`}
-          //         startIcon={
-          //           <SvgIcon>
-          //             <path d="M21.547 7h-3.29a.743.743 0 0 0-.655.392s-1.312 2.416-1.734 3.23C14.734 12.813 14 12.126 14 11.11V7.603A1.104 1.104 0 0 0 12.896 6.5h-2.474a1.982 1.982 0 0 0-1.75.813s1.255-.204 1.255 1.49c0 .42.022 1.626.04 2.64a.73.73 0 0 1-1.272.503 21.54 21.54 0 0 1-2.498-4.543.693.693 0 0 0-.63-.403h-2.99a.508.508 0 0 0-.48.685C3.005 10.175 6.918 18 11.38 18h1.878a.742.742 0 0 0 .742-.742v-1.135a.73.73 0 0 1 1.23-.53l2.247 2.112a1.09 1.09 0 0 0 .746.295h2.953c1.424 0 1.424-.988.647-1.753-.546-.538-2.518-2.617-2.518-2.617a1.02 1.02 0 0 1-.078-1.323c.637-.84 1.68-2.212 2.122-2.8.603-.804 1.697-2.507.197-2.507z" />
-          //           </SvgIcon>
-          //         }
-          //       >
-          //         Share on VK
-          //       </ColoredButton>
-          //     </Grid>
-          //   );
-          // }
-          // case "Telegram": {
-          //   return (
-          //     <Grid item key={index}>
-          //       <ColoredButton
-          //         color="#54A9EB"
-          //         className={forceWhite ? "text-white" : null}
-          //         classes={{ label: forceWhite ? "text-white" : null }}
-          //         variant="contained"
-          //         disableElevation
-          //         href={`https://telegram.me/share/url?text=${description}&amp;&url=${site}`}
-          //         startIcon={
-          //           <SvgIcon>
-          //             <path d="M.707 8.475C.275 8.64 0 9.508 0 9.508s.284.867.718 1.03l5.09 1.897 1.986 6.38a1.102 1.102 0 0 0 1.75.527l2.96-2.41a.405.405 0 0 1 .494-.013l5.34 3.87a1.1 1.1 0 0 0 1.046.135 1.1 1.1 0 0 0 .682-.803l3.91-18.795A1.102 1.102 0 0 0 22.5.075L.706 8.475z" />
-          //           </SvgIcon>
-          //         }
-          //       >
-          //         Share on Telegram
-          //       </ColoredButton>
-          //     </Grid>
-          //   );
-          // }
+          case "Hacker News": {
+            return (
+              <Grid item key={index}>
+                <ColoredButton
+                  color="#ff6600"
+                  className={forceWhite ? "text-white" : null}
+                  classes={{ label: forceWhite ? "text-white" : null }}
+                  variant="contained"
+                  disableElevation
+                  href={`https://news.ycombinator.com/submitlink?u=${site}&amp;&t=${description}`}
+                  startIcon={
+                    <SvgIcon>
+                      <path
+                        fill-rule="evenodd"
+                        d="M60.94 82.314L17 0h20.08l25.85 52.093c.397.927.86 1.888 1.39 2.883.53.994.995 2.02 1.393 3.08.265.4.463.764.596 1.095.13.334.262.63.395.898.662 1.325 1.26 2.618 1.79 3.877.53 1.26.993 2.42 1.39 3.48 1.06-2.254 2.22-4.673 3.48-7.258 1.26-2.585 2.552-5.27 3.877-8.052L103.49 0h18.69L77.84 83.308v53.087h-16.9v-54.08z"
+                      ></path>
+                    </SvgIcon>
+                  }
+                >
+                  Share on Hacker News
+                </ColoredButton>
+              </Grid>
+            );
+          }
+          case "VK": {
+            return (
+              <Grid item key={index}>
+                <ColoredButton
+                  color="#507299"
+                  className={forceWhite ? "text-white" : null}
+                  classes={{ label: forceWhite ? "text-white" : null }}
+                  variant="contained"
+                  disableElevation
+                  href={`https://vk.com/share.php?title=${description}&amp;&url=${site}`}
+                  startIcon={
+                    <SvgIcon>
+                      <path d="M21.547 7h-3.29a.743.743 0 0 0-.655.392s-1.312 2.416-1.734 3.23C14.734 12.813 14 12.126 14 11.11V7.603A1.104 1.104 0 0 0 12.896 6.5h-2.474a1.982 1.982 0 0 0-1.75.813s1.255-.204 1.255 1.49c0 .42.022 1.626.04 2.64a.73.73 0 0 1-1.272.503 21.54 21.54 0 0 1-2.498-4.543.693.693 0 0 0-.63-.403h-2.99a.508.508 0 0 0-.48.685C3.005 10.175 6.918 18 11.38 18h1.878a.742.742 0 0 0 .742-.742v-1.135a.73.73 0 0 1 1.23-.53l2.247 2.112a1.09 1.09 0 0 0 .746.295h2.953c1.424 0 1.424-.988.647-1.753-.546-.538-2.518-2.617-2.518-2.617a1.02 1.02 0 0 1-.078-1.323c.637-.84 1.68-2.212 2.122-2.8.603-.804 1.697-2.507.197-2.507z" />
+                    </SvgIcon>
+                  }
+                >
+                  Share on VK
+                </ColoredButton>
+              </Grid>
+            );
+          }
+          case "Telegram": {
+            return (
+              <Grid item key={index}>
+                <ColoredButton
+                  color="#54A9EB"
+                  className={forceWhite ? "text-white" : null}
+                  classes={{ label: forceWhite ? "text-white" : null }}
+                  variant="contained"
+                  disableElevation
+                  href={`https://telegram.me/share/url?text=${description}&amp;&url=${site}`}
+                  startIcon={
+                    <SvgIcon>
+                      <path d="M.707 8.475C.275 8.64 0 9.508 0 9.508s.284.867.718 1.03l5.09 1.897 1.986 6.38a1.102 1.102 0 0 0 1.75.527l2.96-2.41a.405.405 0 0 1 .494-.013l5.34 3.87a1.1 1.1 0 0 0 1.046.135 1.1 1.1 0 0 0 .682-.803l3.91-18.795A1.102 1.102 0 0 0 22.5.075L.706 8.475z" />
+                    </SvgIcon>
+                  }
+                >
+                  Share on Telegram
+                </ColoredButton>
+              </Grid>
+            );
+          }
           default: {
             throw new Error(
               `No branch taken in switch-statement: ${element} is not a valid type.`

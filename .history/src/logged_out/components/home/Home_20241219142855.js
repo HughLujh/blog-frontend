@@ -13,7 +13,7 @@ function Home(props) {
     <Fragment>
       <HeadSection />
       <FeatureSection />
-      {/* disabled for later use */}
+      {/* disabled for later user */}
       {/* <PricingSection /> */}
     </Fragment>
   );

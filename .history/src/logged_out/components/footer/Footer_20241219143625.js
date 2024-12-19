@@ -229,7 +229,7 @@ function Footer(props) {
               About Me
             </Typography>
             <Typography style={{ color: "#8f9296" }} paragraph>
-            Hey, I’m Hugh - Welcome to my area.
+            Hey, I’m Hugh - Welcome to my blog.
             </Typography>
             <Box display="flex">
               {socialIcons.map((socialIcon, index) => (

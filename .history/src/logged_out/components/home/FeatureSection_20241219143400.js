@@ -9,7 +9,6 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import CloudIcon from "@mui/icons-material/Cloud";
 import MeassageIcon from "@mui/icons-material/Message";
 import CancelIcon from "@mui/icons-material/Cancel";
-import TopicIcon from '@mui/icons-material/Topic';
 import calculateSpacing from "./calculateSpacing";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { withTheme } from "@mui/styles";

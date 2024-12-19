@@ -65,8 +65,7 @@ function BlogPost(props) {
                 {content}
                 <Box pt={2}>
                   <Grid spacing={1} container>
-                    {/* {["Facebook", "Twitter", "Reddit", "Tumblr"].map( */}
-                    {["Facebook", "Twitter"].map(
+                    {["Facebook", "Twitter", "Reddit", "Tumblr"].map(
                       (type, index) => (
                         <Grid item key={index}>
                           <ShareButton
